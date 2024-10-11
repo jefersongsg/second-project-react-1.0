@@ -4,17 +4,17 @@ import Home from './pages/Home'
 import ListUsers from './pages/ListUsers/'
 
 
-const router =createBrowserRouter([
+const Router =createBrowserRouter([
     {
         path:'/',
         element:<Home/>  
     },
 
     {  
-        path:'/lista-de-usuarios',
+        path:'/users',
         element:<ListUsers/>
     }
 ])
 
 
-export default router
+export default Router

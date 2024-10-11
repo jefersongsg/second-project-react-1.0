@@ -7,7 +7,7 @@ export const Title = styled.div`
     font-size:38px;
     font-style:normal;
     font-weight:600;
-    margin-top:30px;
+    margin-top:10px;
 `
 export const Container = styled.div`
     background-color: #181f36;

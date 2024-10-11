@@ -24,7 +24,7 @@ function Home() {
     const inputEmail = useRef()
 
     async function userRegistration() {
-    const data = await api.post('http://localhost:3000/usuarios',{
+    const data = await api.post('http://localhost:3000/users',{
             email: inputEmail.current.value,
             age: parseInt(inputAge.current.value),
             name: inputName.current.value
@@ -51,7 +51,7 @@ function Home() {
                           Idade<span> *</span>
                         </InputLabel>
 
-                        <Input type= 'number'placeholder="Idade do usuário" ref={inputAge}/>
+                        <Input type="number" placeholder="Idade do usuário" ref={inputAge}/>
                     </div>
                 </ContainerInputs>
 
@@ -68,7 +68,7 @@ function Home() {
                     Cadastrar Usuário
                 </Button>
 
-                <Button type="button" onClick={() => navigate ('/lista-de-usuarios')}>
+                <Button type="button" onClick={() => navigate ('/users')}>
                     Ver Lista de Usuários
                 </Button>
                

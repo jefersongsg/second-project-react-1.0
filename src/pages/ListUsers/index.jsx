@@ -11,13 +11,12 @@ import { Title, Container, ContainerUsers, CardUsers, TrashIcon, Avatar } from '
 function ListUsers() {
 
     const navigate = useNavigate()
-
     const [user, setUser] = useState([])
 
     useEffect(() => {
 
-        async function getUsers() {
-            const { data } = await api.get('http://localhost:3000/usuarios')
+        async function getUsers()  {
+            const { data } = await api.get('http://localhost:3000/users')
 
             setUser(data)
         }
@@ -27,12 +26,12 @@ function ListUsers() {
 
 
     async function deleteUser(id){
-        await api.delete(`http://localhost:3000/usuarios${id}`)
+        await api.delete(`http://localhost:3000/users${id}`)
 
-        const updateUser= user.filter(user.id !== id)
+        const UpdateUser= user.filter(user.id !== id)
 
 
-        setUser(updateUser)
+        setUser(UpdateUser)
     }
     return (
         <Container>
