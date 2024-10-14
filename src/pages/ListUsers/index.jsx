@@ -1,44 +1,36 @@
+import { useEffect, useState } from 'react';
+import api from '../../services/api';
+import Button from '../../components/Button';
+import TopBackground from '../../components/TopBackground';
+import Trash from '../../assets/trash.svg';
+import { useNavigate } from 'react-router-dom';
+import { Title, Container, ContainerUsers, CardUsers, TrashIcon, Avatar } from './styles';
 
-import { useEffect, useState } from 'react'
-import api from '../../services/api'
-import Button from '../../components/Button'
-import TopBackground from '../../components/TopBackground'
-import Trash from '../../assets/trash.svg'
-import { useNavigate } from 'react-router-dom'
-import { Title, Container, ContainerUsers, CardUsers, TrashIcon, Avatar } from './styles'
+const ListUsers = () => {
+    const [users, setUsers] = useState([]);
 
+    async function getUsers() {
+        const usersFromApi = await api.get('/users');
+        setUsers(usersFromApi.data);
+    }
 
-function ListUsers() {
-
-    const navigate = useNavigate()
-    const [user, setUser] = useState([])
+    async function deleteUser(id) {
+        await api.delete(`/users/${id}`);
+        getUsers();
+    }
 
     useEffect(() => {
+        getUsers();
+    }, []);
 
-        async function getUsers()  {
-            const { data } = await api.get('http://localhost:3000/users')
+    const navigate = useNavigate();
 
-            setUser(data)
-        }
-        getUsers()
-    },
-    [])
-
-
-    async function deleteUser(id){
-        await api.delete(`http://localhost:3000/users${id}`)
-
-        const UpdateUser= user.filter(user.id !== id)
-
-
-        setUser(UpdateUser)
-    }
     return (
         <Container>
-            <TopBackground/>
+            <TopBackground />
             <Title>Lista de Usuários</Title>
             <ContainerUsers>
-                {user.map ((user) => (
+                {users.map((user) => (
                     <CardUsers key={user.id}>
                         <Avatar src={`https://avatar.iran.liara.run/public?username=${user.id}`} />
                         <div>
@@ -46,15 +38,13 @@ function ListUsers() {
                             <p>{user.age}</p>
                             <p>{user.email}</p>
                         </div>
-                        <TrashIcon src={Trash} alt={icon - delet} onClick={deleteUser(user.id)}/>
+                        <TrashIcon src={Trash} alt="icon-delete" onClick={() => deleteUser(user.id)} />
                     </CardUsers>
                 ))}
             </ContainerUsers>
-
-            <Button onClick={() => navigate ('/')}>voltar</Button>
+            <Button onClick={() => navigate('/')}>voltar</Button>
         </Container>
-    )
+    );
+};
 
-}
-
-export default ListUsers
+export default ListUsers;

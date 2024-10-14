@@ -15,23 +15,22 @@ import Button  from '../../components/Button'
 import TopBackground  from '../../components/TopBackground'
 
 
-function Home() {
-
-    const navigate = useNavigate()
+const Home = () => {
 
     const inputName = useRef()
-    const inputAge = useRef()
+    const inputAge  = useRef()
     const inputEmail = useRef()
 
     async function userRegistration() {
-    const data = await api.post('http://localhost:3000/users',{
+
+    await api.post('http://localhost:3001/users',{
             email: inputEmail.current.value,
             age: parseInt(inputAge.current.value),
             name: inputName.current.value
         })
-   
+    
     }
-
+    const navigate = useNavigate()
 
     return(
         <Container>
