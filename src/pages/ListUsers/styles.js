@@ -25,21 +25,23 @@ export const ContainerUsers = styled.div`
 
 @media 
     (max-width:750px) {
-    grid-template-columns:1fr; }
+    grid-template-columns:1fr;
+    padding: 6px;
+    gap: 37px; }
 `
 export const CardUsers = styled.div`
-    background-color: #252d48;
-    padding:16px;
-    border-radius:36px;
+    background-color: #e93a3a;
+    padding:10px;
+    border-radius:46px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:20px;
-    max-width:300px;
+    gap:10px;
+    max-width:100vh;
 
 h3{
     color:#fff;
-    font-size:24px;
+    font-size:20px;
     margin-bottom:3px;
     text-transform:capitalize;
   }
@@ -52,7 +54,7 @@ p {
   `
 
 export const Avatar = styled.img`
-    height:80px;
+    height:40px;
 `
 
 export const TrashIcon = styled.img`

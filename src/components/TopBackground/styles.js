@@ -20,9 +20,5 @@ export const Background = styled.div`
         width:80vw;
         
     }
-    @media only screen and (max-width:500px){
-        height:75vw;
-        width:90vw;
-        
-    }
+   
 `

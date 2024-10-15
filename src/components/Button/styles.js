@@ -15,7 +15,7 @@ export const Button = styled.button`
     props.theme ==='primario'
     ?' #fff'
     :' #181f36' };
-    padding:16px 32px;
+    padding:15px 50px;
     width:fit-content;
     cursor:pointer;
     border-radius:30px;
