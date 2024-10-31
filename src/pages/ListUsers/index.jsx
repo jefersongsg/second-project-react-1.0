@@ -16,7 +16,7 @@ const ListUsers = () => {
 
     async function deleteUser(id) {
         await api.delete(`/users/${id}`);
-        getUsers();
+       
     }
 
     useEffect(() => {
@@ -42,7 +42,8 @@ const ListUsers = () => {
                     </CardUsers>
                 ))}
             </ContainerUsers>
-            <Button onClick={() => navigate('/')}>voltar</Button>
+            <Button onClick={() => navigate('/')}>voltar
+            </Button>
         </Container>
     );
 };
