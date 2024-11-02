@@ -31,7 +31,7 @@ const Home = () => {
     
     }
     const navigate = useNavigate()
-
+    
     return(
         <Container>
             <TopBackground/>   

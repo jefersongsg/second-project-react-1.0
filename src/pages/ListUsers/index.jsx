@@ -16,7 +16,10 @@ const ListUsers = () => {
 
     async function deleteUser(id) {
         await api.delete(`/users/${id}`);
+
+        const updateUsers = users.filter(user => user.id !== id)
        
+        setUsers(updateUsers)
     }
 
     useEffect(() => {
