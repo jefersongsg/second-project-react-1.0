@@ -20,17 +20,26 @@ const Home = () => {
     const inputName = useRef()
     const inputAge  = useRef()
     const inputEmail = useRef()
+    const navigate = useNavigate()
 
     async function userRegistration() {
-
-    await api.post('http://localhost:3001/users',{
+        try {
+          const res = await api.post('/users', {
             email: inputEmail.current.value,
             age: parseInt(inputAge.current.value),
             name: inputName.current.value
-        })
-    
-    }
-    const navigate = useNavigate()
+          });
+      
+          if (res.status === 201) {
+            navigate('/users');
+          } else {
+            alert('Erro ao criar usuário');
+          }
+        } catch (error) {
+          console.error('Erro ao cadastrar usuário:', error);
+          alert('Erro ao cadastrar usuário');
+        }
+      }
     
     return(
         <Container>
